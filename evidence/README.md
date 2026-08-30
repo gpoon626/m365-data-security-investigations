@@ -6,13 +6,17 @@ This folder contains screenshots and audit evidence supporting the Microsoft 365
 
 ### External Sharing and Access Governance
 
-Evidence will cover:
+| Evidence                                                             | Demonstrates                                                 |
+| -------------------------------------------------------------------- | ------------------------------------------------------------ |
+| [External user edit access](external-user-edit-access.png)           | External recipient with edit permissions                     |
+| [Sharing permission options](sharing-permission-options.png)         | Available edit, view, and download restrictions              |
+| [Anonymous-link settings](anonymous-link-settings.png)               | Anyone-link scope, expiration, and password controls         |
+| [Audit-search processing delay](audit-search-processing-delay.png)   | Purview search latency before events became available        |
+| [External-sharing audit results](external-sharing-audit-results.png) | External-sharing events displayed in the results grid        |
+| [External-sharing event details](external-sharing-event-details.png) | Guest recipient, resource, location, and permission details  |
+| [External re-share event](external-reshare-event.png)                | Sharing invitation generated during the re-sharing test      |
+| [Tenant sharing report query](tenant-sharing-report-query.png)       | Tenant-wide sharing search without an individual-user filter |
 
-- External access and permission review
-- View-versus-edit permission changes
-- Purview external-sharing audit results
-- External re-sharing activity
-- Tenant-wide sharing review
 
 ### File Activity Audit Investigation
 
@@ -34,4 +38,4 @@ Evidence will cover:
 
 ## Index Status
 
-Exact filenames and links will be added after the screenshots are reviewed and uploaded.
+The External Sharing and Access Governance index is complete. File Activity Audit Investigation and Insider Risk Investigation filenames will be added after their evidence is reviewed and uploaded.
