@@ -60,3 +60,5 @@ The evidence may display test-account names, lab tenant information, IP addresse
 ## Current Status
 
 All three case studies include supporting evidence from Microsoft Purview, SharePoint, and OneDrive. The case studies remain intentionally marked as **Draft** while their explanations, findings, and presentation are reviewed and refined.
+
+This public repository is under active development and may receive additional technical and presentation updates.
