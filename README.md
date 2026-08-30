@@ -59,6 +59,4 @@ The evidence may display test-account names, lab tenant information, IP addresse
 
 ## Current Status
 
-This repository contains working drafts of three case studies. Supporting screenshots and audit evidence will be added as the project continues.
-
-The content remains in Draft status so it can be revised before final publication.
+All three case studies include supporting evidence from Microsoft Purview, SharePoint, and OneDrive. The case studies remain intentionally marked as **Draft** while their explanations, findings, and presentation are reviewed and refined.
