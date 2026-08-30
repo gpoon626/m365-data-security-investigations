@@ -32,13 +32,14 @@ This folder contains screenshots and audit evidence supporting the Microsoft 365
 
 ### Insider Risk Investigation
 
-Evidence will cover:
-
-- Clustered file-download events
-- Initial zero-result audit search
-- External sharing of the payroll-themed test file
-- Sharing-invitation and secure-link events
+| Evidence                                                                           | Demonstrates                                                           |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [Insider-download initial zero results](insider-download-initial-zero-results.png) | Completed file-download search before expected events became available |
+| [Insider-download delayed result](insider-download-delayed-result.png)             | Repeated search returning five download events                         |
+| [Clustered file-download events](clustered-file-download-events.png)               | Five files downloaded within approximately one minute                  |
+| [Insider-sharing audit query](insider-sharing-audit-query.png)                     | Completed secure-link and sharing-invitation search                    |
+| [Insider-sharing audit results](insider-sharing-audit-results.png)                 | Created secure-link and sharing-invitation events                      |
 
 ## Index Status
 
-The External Sharing and Access Governance and File Activity Audit Investigation indexes are complete. Insider Risk Investigation filenames will be added after its evidence is reviewed and uploaded.
+The evidence index is complete for all three case studies. Each listed filename links directly to the corresponding screenshot in this folder.
