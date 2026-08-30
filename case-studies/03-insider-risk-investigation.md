@@ -143,4 +143,53 @@ Containment decisions should be based on the sensitivity of the data, strength o
 
 ## Evidence
 
+### Initial Download Search
+
+![Microsoft Purview completed file-download search with zero results](../evidence/insider-download-initial-zero-results.png)
+
+The initial audit search for downloaded-file activity completed but returned zero results. Because the download activity had been generated recently, this was treated as a possible audit-ingestion delay rather than proof that no downloads occurred.
+
+### Delayed Download Results
+
+![Microsoft Purview repeated download search returning five events](../evidence/insider-download-delayed-result.png)
+
+After the search was repeated, Purview returned five downloaded-file events. The difference between the two completed searches demonstrated that expected activity may become available after additional ingestion time.
+
+![Microsoft Purview showing five clustered file-download events](../evidence/clustered-file-download-events.png)
+
+The five downloads occurred within approximately one minute:
+
+* One event was recorded at 8:46 PM UTC.
+* Four events were recorded at 8:47 PM UTC.
+* The events were associated with the same user and source IP address.
+* Each event involved a different file.
+
+The concentrated timing made the activity suitable for insider-risk review. However, clustered downloads alone do not establish malicious intent. Legitimate bulk work, synchronization, migration, or offline-access preparation can produce similar activity.
+
+A production investigation would correlate the downloads with the user’s role, normal behavior, file sensitivity, device, destination, recent access changes, and subsequent sharing or transfer activity.
+
+### External-Sharing Activity
+
+![Microsoft Purview completed audit query for secure-link and sharing-invitation events](../evidence/insider-sharing-audit-query.png)
+
+The external-sharing search targeted secure-link creation and sharing-invitation activity. The completed query returned two results.
+
+![Microsoft Purview results showing a created secure link and sharing invitation](../evidence/insider-sharing-audit-results.png)
+
+The results showed:
+
+* A **Created sharing invitation** event at 10:54 PM UTC.
+* A **Created secure link** event at 10:56 PM UTC.
+* Both events were associated with the same user and source IP address.
+* The sharing invitation identified an external destination.
+
+These events confirmed that external-sharing mechanisms were created for the test resource. They did not, by themselves, prove that the external recipient opened the link or downloaded the file. Confirming successful data access would require correlation with file-access, secure-link-use, download, authentication, and recipient activity.
+
+### Evidence Assessment
+
+The combined evidence established an intentionally generated sequence of clustered downloads followed by external-sharing activity. In a production environment, this combination would warrant investigation because it could indicate collection and attempted transfer of organizational data.
+
+**Disposition:** Simulated true positive — authorized insider-risk behavior with no conclusion of real compromise or confirmed exfiltration.
+
+
 Supporting screenshots for clustered downloads and external sharing of the payroll-themed test file will be added next.
