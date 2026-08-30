@@ -118,4 +118,61 @@ Investigators should:
 
 ## Evidence
 
+### File-Access Audit Search
+
+![Microsoft Purview query for accessed-file and viewed-page activity](../evidence/file-access-audit-query.png)
+
+The audit search targeted **Accessed file** and **Viewed page** activities for the selected test user and UTC date range. The completed search returned 44 results.
+
+![Microsoft Purview results showing file-access activity](../evidence/file-access-audit-results.png)
+
+The results included timestamps, source IP addresses, users, record types, activities, items, and resource locations. The returned events included user-accessed content as well as supporting SharePoint resources such as forms, site assets, and page components.
+
+This demonstrated why audit results must be filtered and interpreted rather than treating every returned event as a meaningful document-access incident.
+
+### Event-Level Analysis
+
+![Microsoft Purview detailed file-access audit record](../evidence/file-access-event-details.png)
+
+Opening an individual event exposed additional investigative fields, including:
+
+* UTC event time
+* Source IP address
+* Actor identity
+* Activity and operation
+* Accessed item
+* Client application
+* Authentication context
+* Correlation and session information
+
+These fields can help reconstruct who accessed a resource, what was accessed, when the activity occurred, and which session or application was involved.
+
+### Initial Recycled-File Search
+
+![Microsoft Purview completed recycled-file search with zero results](../evidence/recycled-file-initial-zero-results.png)
+
+The initial search for deleted-file and recycled-file activity completed successfully but returned zero results. A separate file-download search also returned zero results.
+
+A completed search with no matches was not treated as proof that the action had not occurred. The activity had been generated recently, so audit-ingestion delay remained a likely explanation.
+
+### Delayed Audit Result
+
+![Microsoft Purview repeated recycled-file search returning one result](../evidence/recycled-file-delayed-result.png)
+
+After the search was repeated, the same deleted-file and recycled-file query returned one result. This confirmed that the original zero-result search reflected delayed event availability rather than the absence of the action.
+
+![Microsoft Purview audit event showing a recycled test file](../evidence/recycled-file-audit-event.png)
+
+The resulting event identified:
+
+* Activity: **Recycled file**
+* Item: `Test File.docx`
+* User associated with the action
+* UTC timestamp
+* Source IP address
+* SharePoint file-operation record type
+
+The sequence demonstrated that investigators should account for Microsoft 365 audit latency, preserve the original search criteria, and repeat the search before concluding that expected activity was not logged.
+
+
 Supporting screenshots for file access and recycled-file activity will be added next.
