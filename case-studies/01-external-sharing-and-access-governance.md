@@ -110,4 +110,47 @@ Microsoft Purview Audit provided an investigation trail showing who shared an it
 
 ## Evidence
 
-Supporting screenshots for permission review, external sharing, re-sharing, and tenant-wide audit activity will be added next.
+### External Access and Permission Review
+
+![OneDrive Manage Access showing an external user with edit access](../evidence/external-user-edit-access.png)
+
+The folder’s Manage Access panel showed that an external user had edit access. Because the recipient only needed to view the content, this access level was broader than necessary.
+
+![OneDrive sharing menu showing available permission levels](../evidence/sharing-permission-options.png)
+
+The sharing controls provided options for edit, view, and view-without-download access. The existing external user’s permission was changed from **Can edit** to **Can view**, reducing the recipient’s ability to modify the folder’s contents.
+
+![OneDrive link settings showing the Anyone sharing option](../evidence/anonymous-link-settings.png)
+
+The link-settings panel showed that an **Anyone** link could be configured with view access, an expiration date, and a password. No Anyone link was created during the exercise. Even with additional controls, anonymously accessible links can be forwarded beyond the intended recipient and should be used cautiously.
+
+### External-Sharing Audit Investigation
+
+![Microsoft Purview audit search showing a search still processing](../evidence/audit-search-processing-delay.png)
+
+The Purview audit search remained in progress after approximately ten minutes and initially displayed no results. This demonstrated that recently generated Microsoft 365 audit events might not be immediately available during an investigation.
+
+![Microsoft Purview audit results showing external-sharing events](../evidence/external-sharing-audit-results.png)
+
+After processing, the results grid displayed two external-sharing events. The page header continued to show a stale zero-item count while the grid contained the event rows, so the individual records were opened and reviewed rather than relying only on the summary count.
+
+![Microsoft Purview audit event showing external-sharing details](../evidence/external-sharing-event-details.png)
+
+The detailed record identified the guest recipient, shared file, SharePoint location, browser information, and permissions associated with the event. These fields helped connect the external-sharing action to a specific user, resource, and recipient.
+
+### External Re-Sharing Review
+
+![Microsoft Purview result showing an external sharing invitation](../evidence/external-reshare-event.png)
+
+The audit search returned a **Created sharing invitation** event associated with the externally shared resource. The event identified where the invitation was sent and supported tracing how access expanded beyond the original recipient.
+
+This demonstrated why edit access creates greater risk than view-only access. Depending on the sharing configuration, an external editor may be able to modify content or extend access to another recipient.
+
+### Tenant-Wide Sharing Report
+
+![Microsoft Purview tenant-wide audit query for sharing activity](../evidence/tenant-sharing-report-query.png)
+
+The tenant-wide audit search included **Created sharing invitation** and **Used secure link** without filtering for an individual user. The completed search returned one matching event.
+
+Only a Created sharing invitation event was returned; no Used secure link event appeared. The absence of that operation does not necessarily prove that the shared resource was never accessed. Related file-access and sharing events may need to be correlated because user actions do not always map one-to-one with a single Purview operation name.
+
