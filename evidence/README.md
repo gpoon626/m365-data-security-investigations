@@ -20,12 +20,15 @@ This folder contains screenshots and audit evidence supporting the Microsoft 365
 
 ### File Activity Audit Investigation
 
-Evidence will cover:
+| Evidence                                                                     | Demonstrates                                                |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [File-access audit query](file-access-audit-query.png)                       | Search scope for accessed-file and viewed-page activity     |
+| [File-access audit results](file-access-audit-results.png)                   | File and page activity returned by Microsoft Purview        |
+| [File-access event details](file-access-event-details.png)                   | Timestamp, IP, actor, item, and application context         |
+| [Recycled-file initial zero results](recycled-file-initial-zero-results.png) | Completed search before the expected event became available |
+| [Recycled-file delayed result](recycled-file-delayed-result.png)             | Repeated search returning the expected event                |
+| [Recycled-file audit event](recycled-file-audit-event.png)                   | Recorded recycle action for the test document               |
 
-- File-access audit events
-- User, item, timestamp, and source-IP details
-- Recycled-file event
-- Audit-search ingestion delay
 
 ### Insider Risk Investigation
 
@@ -38,4 +41,4 @@ Evidence will cover:
 
 ## Index Status
 
-The External Sharing and Access Governance index is complete. File Activity Audit Investigation and Insider Risk Investigation filenames will be added after their evidence is reviewed and uploaded.
+The External Sharing and Access Governance and File Activity Audit Investigation indexes are complete. Insider Risk Investigation filenames will be added after its evidence is reviewed and uploaded.
